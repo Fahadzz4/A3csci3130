@@ -6,6 +6,7 @@ import com.google.firebase.database.IgnoreExtraProperties;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 /**
  * Class that defines how the data will be stored in the
@@ -16,25 +17,28 @@ public class Contact implements Serializable {
 
     public  String uid;
     public  String name;
-    public  String email;
+    public  String number;
+    public  String province;
+    public  String primaryBusiness;
+    public  String address;
 
-    public Contact() {
-        // Default constructor required for calls to DataSnapshot.getValue
-    }
 
-    public Contact(String uid, String name, String email){
+
+    public Contact(String uid, String name, String number,String province, String primaryBusiness, String address){
         this.uid = uid;
         this.name = name;
-        this.email = email;
+        this.number = number;
+        this.address=address;
+        this.primaryBusiness=primaryBusiness;
+        this.province=province;
     }
 
-    @Exclude
-    public Map<String, Object> toMap(){
-        HashMap<String, Object> result = new HashMap<>();
-        result.put("uid", uid);
-        result.put("name", name);
-        result.put("email", email);
+    @Override
+    public int hashCode() {
 
-        return result;
+        return Objects.hash( uid, name, number, province,  primaryBusiness, address);
+    }
+    public Contact() {
+        // Default constructor required for calls to DataSnapshot.getValue
     }
 }

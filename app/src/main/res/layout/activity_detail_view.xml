@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.acme.a3csci3130.DetailViewActivity">
+
     <EditText
         android:layout_width="395dp"
         android:layout_height="wrap_content"
@@ -17,40 +18,66 @@
         android:layout_marginStart="8dp" />
 
     <EditText
-        android:id="@+id/email"
+        android:id="@+id/number"
         android:layout_width="395dp"
         android:layout_height="wrap_content"
-        android:hint="e-mail"
-        android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@+id/name"
         android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:hint="number"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginStart="8dp" />
+        app:layout_constraintTop_toBottomOf="@+id/name" />
 
     <Button
         android:id="@+id/updateButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Update Data"
-        app:layout_constraintTop_toBottomOf="@+id/email"
         android:layout_marginLeft="8dp"
+        android:layout_marginTop="304dp"
+        android:onClick="updateContact"
+        android:text="Update Data"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginStart="8dp"
-        android:onClick="updateContact"/>
+        app:layout_constraintTop_toBottomOf="@+id/number" />
 
     <Button
         android:id="@+id/deleteButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Erase Contact"
-        android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@+id/email"
         android:layout_marginRight="8dp"
+        android:layout_marginTop="300dp"
+        android:onClick="eraseContact"
+        android:text="Erase Contact"
         app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginEnd="8dp"
-        android:onClick="eraseContact"/>
+        app:layout_constraintTop_toBottomOf="@+id/number" />
 
+    <EditText
+        android:id="@+id/Address"
+        android:layout_width="395dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:hint="Address"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/number" />
+
+    <EditText
+        android:id="@+id/primaryBusiness"
+        android:layout_width="395dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:hint="Primary business"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Address" />
+
+    <EditText
+        android:id="@+id/province"
+        android:layout_width="395dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:hint="Province"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/primaryBusiness" />
 
 
 </android.support.constraint.ConstraintLayout>

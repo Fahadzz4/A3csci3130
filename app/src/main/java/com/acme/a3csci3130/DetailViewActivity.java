@@ -8,8 +8,9 @@ import android.widget.EditText;
 
 public class DetailViewActivity extends Activity {
 
-    private EditText nameField, emailField;
+    private EditText nameField, numberField,provinceFeild,addressFeild,primaryBusinessFeild;
     Contact receivedPersonInfo;
+    private MyApplicationData app;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,20 +19,28 @@ public class DetailViewActivity extends Activity {
         receivedPersonInfo = (Contact)getIntent().getSerializableExtra("Contact");
 
         nameField = (EditText) findViewById(R.id.name);
-        emailField = (EditText) findViewById(R.id.email);
-
+        numberField = (EditText) findViewById(R.id.number);
+        provinceFeild = (EditText) findViewById(R.id.province);
+        addressFeild = (EditText) findViewById(R.id.Address);
+        primaryBusinessFeild = (EditText) findViewById(R.id.primaryBusiness);
         if(receivedPersonInfo != null){
             nameField.setText(receivedPersonInfo.name);
-            emailField.setText(receivedPersonInfo.email);
+            numberField.setText(receivedPersonInfo.number);
+            provinceFeild.setText(receivedPersonInfo.province);
+            addressFeild.setText(receivedPersonInfo.address);
+            primaryBusinessFeild.setText(receivedPersonInfo.primaryBusiness);
         }
     }
 
     public void updateContact(View v){
         //TODO: Update contact funcionality
+        Contact updatedEntry = new Contact(receivedPersonInfo.uid, nameField.toString(), numberField.toString(),provinceFeild.toString(), primaryBusinessFeild.toString(), addressFeild.toString());
+        app.firebaseReference.child(receivedPersonInfo.uid).setValue(updatedEntry);
     }
 
     public void eraseContact(View v)
     {
         //TODO: Erase contact functionality
+        app.firebaseReference.child(receivedPersonInfo.uid).removeValue();
     }
 }
